@@ -88,7 +88,6 @@ class WebHtmlView extends Component {
         javaScriptEnabled={autoHeight}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
         onNavigationStateChange={this._handleNavigationStateChange.bind(this)} />
     )
   }
