@@ -27,7 +27,7 @@ class WebHtmlView extends Component {
   }
 
   render() {
-    let {source, autoHeight, style, innerCSS} = this.props;
+    let {source, autoHeight, style, innerCSS, disablePinchZoom} = this.props;
 
     if (!source) {
       return null
@@ -56,7 +56,7 @@ class WebHtmlView extends Component {
     `
     const startHtmlDoc = `
       <html><head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0${disablePinchZoom ? ', maximum-scale=1.0, user-scalable=no' : ''}">
         <style>${innerCSS}</style></head><body>
     `
     const endHtmlDoc = '</body></html>'
@@ -91,7 +91,8 @@ class WebHtmlView extends Component {
 
 WebHtmlView.defaultProps = {
   innerCSS: '',
-  autoHeight: true
+  autoHeight: true,
+  disablePinchZoom: false,
 };
 
 export default WebHtmlView
